@@ -1,7 +1,32 @@
 <%= form_for @user do |f| %>
-  Username: <%= f.text_field :username %>
+  <div>
+    Username: <%= f.text_field :username %>
+  <% @user.errors.full_messages_for(:username).each do |error| %>
+    <%= error %>
+    <br>
+  <% end %>
+  </div>
+  <br>
+
+  <div>
   Email: <%= f.text_field :email %>
+  <% @user.errors.full_messages_for(:email).each do |error| %>
+    <%= error %>
+    <br>
+  <% end %>
+  </div>
+  <br>
+
+  <div>
   Password: <%= f.text_field :password %>
+  <% @user.errors.full_messages_for(:password).each do |error| %>
+    <%= error %>
+    <br>
+  <% end %>
+  </div>
+  <br>
+
+
   <%= f.submit %>
 <% end %>
 
