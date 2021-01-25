@@ -1,14 +1,29 @@
-<form action="/users" method="POST" accept-charset="UTF-8">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%# using html %>
+<%#<form action="/users" method="post" accept-charset="UTF-8">%>
+  <%#<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">%>
 
-  <label for="user[username]">Enter your username</label>
-  <input type="text" name="user[username]">
+  <%#<label for="user[username]">Enter your username</label>%>
+  <%#<input type="text" name="user[username]">%>
 
-  <label for="user[email]">Enter your email</label>
-  <input type="text" name="user[email]">
+  <%#<label for="user[email]">Enter your email</label>%>
+  <%#<input type="text" name="user[email]">%>
 
-  <label for="user[password]">Enter a password</label>
-  <input type="text" name="user[password]">
+  <%#<label for="user[password]">Enter a password</label>%>
+  <%#<input type="text" name="user[password]">%>
 
-  <input type="submit" value="Create">
-</form>
+  <%#<input type="submit" value="Create">%>
+<%#</form>%>
+
+<%# using form_tag method %>
+<%= form_tag({controller: "users", action: "create"}, method: "post") do %>
+  <%= label(:username, "Enter your username") %>
+  <%= text_field(:user, :username) %>
+
+  <%= label(:email, "Enter your email") %>
+  <%= text_field(:user, :email) %>
+
+  <%= label(:password, "Enter a password") %>
+  <%= text_field(:user, :password) %>
+
+  <%= submit_tag("Create") %>
+<% end %>
