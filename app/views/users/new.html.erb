@@ -1,6 +1,6 @@
 <%# using html %>
 <%#<form action="/users" method="post" accept-charset="UTF-8">%>
-  <%#<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">%>
+  <%#<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token \%\>" %>
 
   <%#<label for="user[username]">Enter your username</label>%>
   <%#<input type="text" name="user[username]">%>
@@ -15,15 +15,23 @@
 <%#</form>%>
 
 <%# using form_tag method %>
-<%= form_tag({controller: "users", action: "create"}, method: "post") do %>
-  <%= label(:username, "Enter your username") %>
-  <%= text_field(:user, :username) %>
+<%#<%= form_tag({controller: "users", action: "create"}, method: "post") do %>
+  <%#<%= label(:username, "Enter your username") %>
+  <%#<%= text_field(:user, :username) %>
 
-  <%= label(:email, "Enter your email") %>
-  <%= text_field(:user, :email) %>
+  <%#<%= label(:email, "Enter your email") %>
+  <%#<%= text_field(:user, :email) %>
 
-  <%= label(:password, "Enter a password") %>
-  <%= text_field(:user, :password) %>
+  <%#<%= label(:password, "Enter a password") %>
+  <%#<%= text_field(:user, :password) %>
 
-  <%= submit_tag("Create") %>
+  <%#<%= submit_tag("Create") %>
+<%#<% end %>
+
+<%# using form_for method %>
+<%= form_for @user do |f| %>
+  Username: <%= f.text_field :username %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.text_field :password %>
+  <%= f.submit %>
 <% end %>
